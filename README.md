@@ -30,16 +30,27 @@ Step 2 :
 Create Docker image from Dockerfile
 
 docker build -f Dockerfile -t demo:restassured . -- to create a docker image locally
+
 docker images                                    -- to list available docker images locally
+
 docker run -it demo:restassured bash             -- to run and login into container
+
 docker#container : 
+
 cd Rest-Assured/target
+
 list available reports:
+
 ls -ltr
+
 cd surefire-reports | more emailable-report.html
+
 docker cp <containerId>:/filepathto<emailable-report.html> /host/path/target
+
 docker ps                                        -- to list running containers
+
 docker ps -a                                     -- to list all containers 
+
 
 
 
