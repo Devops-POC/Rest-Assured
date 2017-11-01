@@ -2,7 +2,8 @@ pipeline {
     agent any    
     stages {
         stage('checkout stage') {
-            step{
+		def customImage
+            steps{
                 checkout scm
                 sh 'ls -ltr'
                 sh 'docker images'
