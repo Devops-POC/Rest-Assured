@@ -1,6 +1,7 @@
-def customImage
-
 pipeline {
+	environment {
+		def customImage
+	}
     agent any    
     stages {
         stage('git checkout') {
@@ -12,11 +13,11 @@ pipeline {
         stage('Docker Build'){
             steps{                
                 sh 'docker images'
-				customImage = docker.build("restassure-demo:${env.BUILD_ID}")
-				sh 'docker images'
-				customImage.inside {
-				sh 'ls -ltr'
-				}
+		customImage = docker.build("restassure-demo:${env.BUILD_ID}")
+		sh 'docker images'
+		customImage.inside {
+		sh 'ls -ltr'
+		}
             }   
         }        
     }
