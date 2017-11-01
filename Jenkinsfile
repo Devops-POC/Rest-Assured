@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-    JAVA_HOME="/usr/bin/java"
+    JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/bin/java"
     M3_HOME="/opt/maven/apache-maven-3.5.2"
     PATH = "$M3_HOME/bin:$PATH:$JAVA_HOME"
   }
@@ -16,7 +16,7 @@ pipeline {
             steps{                
                 echo "PATH is: $PATH"
                 sh 'mvn -version'
-                //sh 'mvn test'
+                sh 'mvn test'
             }   
         }        
     }
