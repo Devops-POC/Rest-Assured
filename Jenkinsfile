@@ -10,7 +10,7 @@ node{
         def customImage = docker.build("restassure-demo:${env.BUILD_ID}")
 	//print customImage
 	sh 'docker images'
-	sh "docker cp 74c97214054:Rest-Assured/target/surefire-reports/emailable-report.html ."
+	sh "docker cp a74c97214054:Rest-Assured/target/surefire-reports/emailable-report.html ."
         customImage.inside {
 	sh 'pwd'
         sh 'ls -ltr'	
