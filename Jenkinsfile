@@ -1,10 +1,5 @@
 pipeline {
-    agent any
-    environment {
-    //JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
-    //M3_HOME="/opt/maven/apache-maven-3.5.2"
-    //PATH = "$M3_HOME/bin:$PATH:$JAVA_HOME"
-  }
+    agent any    
     stages {
         stage('checkout stage') {
             steps {
