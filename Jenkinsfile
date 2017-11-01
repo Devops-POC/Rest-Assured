@@ -9,7 +9,7 @@ pipeline {
         }    
         stage('Maven test'){
             steps{
-                withMaven('maven-3.5.2'){
+                withMaven(maven:'maven-3.5.2'){
                     sh "mvn test"
                 }
                 
