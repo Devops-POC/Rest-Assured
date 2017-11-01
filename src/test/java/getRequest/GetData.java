@@ -20,14 +20,14 @@ public class GetData {
 		Assert.assertEquals(code,200);	
 	}
 	
-	@Test
-	public void testfailResponseergast() throws Exception
-	{		
-		Response res = RestAssured.get("http://ergast.com/api/f1/2017/circuits.json");
-		int code= res.getStatusCode();		
-		System.out.println("status code = "+code);		
-		Assert.assertEquals(code,400);	
-	}
+	//@Test
+	//public void testfailResponseergast() throws Exception
+	//{		
+	//	Response res = RestAssured.get("http://ergast.com/api/f1/2017/circuits.json");
+	//	int code= res.getStatusCode();		
+	//	System.out.println("status code = "+code);		
+	//	Assert.assertEquals(code,400);	
+	//}
 			
 	//Extracting parameters from api and passing it to another  
 	@Test
