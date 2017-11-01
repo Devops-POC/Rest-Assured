@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    environment {
+    M3_HOME="/opt/maven/apache-maven-3.5.2"
+    PATH = "$M3_HOME/bin:$PATH"
+  }
     stages {
         stage('checkout stage') {
             steps {
@@ -8,11 +12,8 @@ pipeline {
             }            
         }    
         stage('Maven test'){
-            steps{
-                withMaven(maven:'maven-3.5.2'){
-                    sh "mvn test"
-                }
-                
+            steps{                
+                echo "PATH is: $PATH"
             }   
         }        
     }
