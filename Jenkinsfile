@@ -11,6 +11,7 @@ node{
 	sh 'docker images'
         customImage.inside {
         sh 'ls -ltr'
+	sh 'tar -cvf name.tar .'
         }
     }
 }
