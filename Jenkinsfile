@@ -14,6 +14,7 @@ pipeline {
         stage('Maven test'){
             steps{                
                 echo "PATH is: $PATH"
+                sh 'mvn test'
             }   
         }        
     }
