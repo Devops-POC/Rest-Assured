@@ -15,7 +15,8 @@ pipeline {
         stage('Maven test'){
             steps{                
                 echo "PATH is: $PATH"
-                sh 'mvn test'
+                sh 'mvn -version'
+                //sh 'mvn test'
             }   
         }        
     }
