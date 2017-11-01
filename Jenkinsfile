@@ -1,8 +1,9 @@
 pipeline {
     agent any
     environment {
+    JAVA_HOME="/usr/bin/java"
     M3_HOME="/opt/maven/apache-maven-3.5.2"
-    PATH = "$M3_HOME/bin:$PATH"
+    PATH = "$M3_HOME/bin:$PATH:$JAVA_HOME"
   }
     stages {
         stage('checkout stage') {
