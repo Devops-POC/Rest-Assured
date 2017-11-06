@@ -5,7 +5,8 @@ node{
     	checkout scm	    
     	sh 'ls -ltr'    	   
     	sh 'docker images'        
-	def customImage = docker.build("restassured-demo:${env.BUILD_ID}")	
+	def customImage = docker.build("restassured-demo:${env.BUILD_ID}")
+	    sh "docker run -i restassured-demo:${env.BUILD_ID}"
 	sh "docker ps -a | grep restassured-demo:${env.BUILD_ID} "
 	containerID = readFile 'outFile'
 	echo "The current container id is ${containerID}"	
