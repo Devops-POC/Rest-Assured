@@ -4,7 +4,7 @@ node {
     }
 
 stage('Deploy approval'){
-    input "Approve Pull Request to prod?"
+    input "Approve Pull Request ?"
     echo "Merge status"
     //setGitHubPullRequestStatus context: 'Mergesuccess', message: 'Success', state: 'SUCCESS'
   }
