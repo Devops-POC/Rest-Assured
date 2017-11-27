@@ -2,7 +2,7 @@ node {
     stage('build'){
         echo "building"
     }
-}
+
 stage('Deploy approval'){
     input "Deploy to prod?"
     echo "approval"
@@ -27,3 +27,4 @@ stage ('Merge Pull Request'){
     
 }
  
+}
