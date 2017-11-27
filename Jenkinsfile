@@ -8,6 +8,7 @@ stage('Deploy approval'){
     echo "approval"
     //setGitHubPullRequestStatus context: 'Mergesuccess', message: 'Success', state: 'SUCCESS'
     //adding additional commit
+    // adding one more comit
 }
 node {
     stage('deploy to prod'){
