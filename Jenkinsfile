@@ -18,15 +18,8 @@ stage('Deploy approval'){
 
 
 }
-node {
     stage('code merge'){
-        publishers {
-        mergeGithubPullRequest {
-            mergeComment('merged by Jenkins')
-            onlyAdminsMerge()
-            
-            deleteOnMerge()
+       if (pullRequest['mergeable']) {
+             pullRequest.merge('merge commit message here')
         }
-    }
-    }
 }
