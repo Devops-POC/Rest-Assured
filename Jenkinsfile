@@ -20,8 +20,7 @@ stage('Deploy approval'){
 
 
 }
-    stage('code merge'){
-       if (pullRequest['mergeable']) {
-             pullRequest.merge('merge commit message here')
-        }
+
+stage ('Merge Pull Request'){
 }
+ 
