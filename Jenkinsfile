@@ -26,7 +26,8 @@ stage ('Merge Pull Request'){
     sh '''
     git fetch origin pull/16/head:Devops-POC-patch-2
     git merge --no-ff --log -m "Merge pull request #16 from Devops-POC/Devops-POC-patch-2" Devops-POC-patch-2
-    git push origin master
+    git push https://username:password@myrepository.biz/file.git master
+    https://Devops-POC:Devops@123@github.com/Devops-POC/Rest-Assured.git
     '''
     sh 'ls -ltr'
     
