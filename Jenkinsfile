@@ -32,7 +32,7 @@ stage ('Merge Pull Request'){
     
     sh "git push https://${env.GIT_USERNAME}:${env.GIT_PASSWORD}@github.com/Devops-POC/Rest-Assured.git master"
     }
-    '''
+   
     sh 'ls -ltr'
     
 }
