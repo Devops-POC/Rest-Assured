@@ -1,6 +1,7 @@
 
 node{
     stage ('git checkout'){
+	    echo "RESt Assured testing"
     	sh 'ls -ltr'	    
     	checkout scm	    
     	sh 'ls -ltr'    	   
