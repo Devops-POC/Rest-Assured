@@ -6,6 +6,7 @@ Step 1:
 
 Make sure docker is installed in the server, before running maven test.
 Use below commands for installing Docker in Ubuntu server.
+Test changes
 
 docker_setup.sh
 ---------------
