@@ -19,7 +19,14 @@ stage('Deploy approval'){
 
 }
 node {
-    stage('deploy to prod'){
-        echo "deploying"
+    stage('code merge'){
+        publishers {
+        mergeGithubPullRequest {
+            mergeComment('merged by Jenkins')
+            onlyAdminsMerge()
+            
+            deleteOnMerge()
+        }
+    }
     }
 }
