@@ -1,15 +1,15 @@
-def pr_ID = 30
+def pr_ID = 31
 node {
     stage('build'){
         echo "building"
     }
-stage('Merge approval'){
+/*stage('Merge approval'){
     input "Approve Pull Request ?"
     echo "Merge status"
     //setGitHubPullRequestStatus context: 'Mergesuccess', message: 'Success', state: 'SUCCESS'
-  }
+  }*/
 
-stage ('Merge Pull Request'){
+/*stage ('Merge Pull Request'){
     git credentialsId: '97b642fd-9553-426c-ae13-8fb7d75cea8b', url: 'https://github.com/Devops-POC/Rest-Assured.git'
     
     sh "git fetch origin pull/${pr_ID}/head:Devops-POC-patch-2"
@@ -27,6 +27,6 @@ stage ('Merge Pull Request'){
    //end of pipeline
     sh 'ls -ltr'
     
-}
+}*/
  
 }
