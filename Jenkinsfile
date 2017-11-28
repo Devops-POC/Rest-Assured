@@ -3,6 +3,7 @@ node {
     stage('build'){
         echo "building"
         //testing...
+        //manual
     }
 /*stage('Merge approval'){
     input "Approve Pull Request ?"
