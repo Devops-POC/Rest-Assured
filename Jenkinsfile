@@ -3,7 +3,6 @@ node {
     stage('build'){
         echo "building"
     }
-
 stage('Merge approval'){
     input "Approve Pull Request ?"
     echo "Merge status"
@@ -23,6 +22,7 @@ stage ('Merge Pull Request'){
     sh "git push https://${env.GIT_USERNAME}:${env.GIT_PASSWORD}@github.com/Devops-POC/Rest-Assured.git --all"
         sh "git push https://${env.GIT_USERNAME}:${env.GIT_PASSWORD}@github.com/Devops-POC/Rest-Assured.git --tags"
         
+
     }
    
     sh 'ls -ltr'
