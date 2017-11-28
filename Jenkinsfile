@@ -4,7 +4,7 @@ node {
         echo "building"
     }
 
-stage('Deploy approval'){
+stage('Merge approval'){
     input "Approve Pull Request ?"
     echo "Merge status"
     //setGitHubPullRequestStatus context: 'Mergesuccess', message: 'Success', state: 'SUCCESS'
