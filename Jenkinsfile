@@ -1,10 +1,10 @@
-def pr_ID = 22
+def pr_ID = 23
 node {
     stage('build'){
         echo "building"
     }
 
-stage('Deploy approval'){
+stage('Merge approval'){
     input "Approve Pull Request ?"
     echo "Merge status"
     //setGitHubPullRequestStatus context: 'Mergesuccess', message: 'Success', state: 'SUCCESS'
