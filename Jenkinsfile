@@ -2,7 +2,7 @@ def pr_ID = 32
 node {
     stage('build'){
         echo "building"
-        //test
+        //testing
     }
 /*stage('Merge approval'){
     input "Approve Pull Request ?"
