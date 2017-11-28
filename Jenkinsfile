@@ -1,4 +1,4 @@
-def pr_ID = 21
+def pr_ID = 22
 node {
     stage('build'){
         echo "building"
@@ -19,8 +19,9 @@ stage ('Merge Pull Request'){
     sh "git tag pull_req_${pr_ID}"
     withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: '97b642fd-9553-426c-ae13-8fb7d75cea8b', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD']]) {
 
-    
+    sh "git tag"
     sh "git push https://${env.GIT_USERNAME}:${env.GIT_PASSWORD}@github.com/Devops-POC/Rest-Assured.git --all"
+        sh "git push https://${env.GIT_USERNAME}:${env.GIT_PASSWORD}@github.com/Devops-POC/Rest-Assured.git --tags"
         
     }
    
