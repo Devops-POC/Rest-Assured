@@ -15,7 +15,7 @@ stage ('Merge Pull Request'){
     
     sh "git fetch origin pull/${pr_ID}/head:Devops-POC-patch-2"
 
-    sh "git merge --no-ff --log -m "Merge pull request ${pr_ID} from Devops-POC/Devops-POC-patch-2" Devops-POC-patch-2"
+    sh 'git merge --no-ff --log -m "Merge pull request ${pr_ID} from Devops-POC/Devops-POC-patch-2" Devops-POC-patch-2'
     sh "git tag pull_req_${pr_ID}"
     withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: '97b642fd-9553-426c-ae13-8fb7d75cea8b', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD']]) {
 
