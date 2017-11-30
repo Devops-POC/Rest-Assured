@@ -1,17 +1,33 @@
+def pr_ID = 32
+node {
+    stage('build'){
+        echo "building"
+        //testing...123
+    }
+stage('Merge approval'){
+    input "Approve Pull Request ?"
+    echo "Merge status"
+    //setGitHubPullRequestStatus context: 'Mergesuccess', message: 'Success', state: 'SUCCESS'
+  }
 
-node{
-    stage ('git checkout'){
-	    echo "RESt Assured testing"
-    	sh 'ls -ltr'	    
-    	checkout scm	    
-    	sh 'ls -ltr'    	   
-    	sh 'docker images'        
-	def customImage = docker.build("restassured-demo:${env.BUILD_ID}")
-	    sh "docker run -i restassured-demo:${env.BUILD_ID}"
-	sh "docker ps -a | grep restassured-demo:${env.BUILD_ID} | awk \'{print $1}\' > outFile "
-	containerID = readFile 'outFile'
-	echo "The current container id is ${containerID}"	
-	sh 'docker images'
-	    echo "pull req test"
-        }
+stage ('Merge Pull Request'){
+    git credentialsId: '97b642fd-9553-426c-ae13-8fb7d75cea8b', url: 'https://github.com/Devops-POC/Rest-Assured.git'
+    
+    sh "git fetch origin pull/${pr_ID}/head:Devops-POC-patch-2"
+
+    sh 'git merge --no-ff --log -m "Merge pull request ${pr_ID} from Devops-POC/Devops-POC-patch-2" Devops-POC-patch-2'
+    sh "git tag pull_req_${pr_ID}"
+    withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: '97b642fd-9553-426c-ae13-8fb7d75cea8b', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD']]) {
+
+    sh "git tag"
+    sh "git push https://${env.GIT_USERNAME}:${env.GIT_PASSWORD}@github.com/Devops-POC/Rest-Assured.git --all"
+        sh "git push https://${env.GIT_USERNAME}:${env.GIT_PASSWORD}@github.com/Devops-POC/Rest-Assured.git --tags"
+        
+
+    }
+   //end of pipeline
+    sh 'ls -ltr'
+    
+}
+ 
 }

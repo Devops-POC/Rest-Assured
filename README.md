@@ -1,11 +1,13 @@
 "# Rest-Assured" 
 Test and Validation of REST Services using Rest-Assured. Tests are developed using testng and test is triggered from Maven.
 Dockerfile in the repository does all the server setup over ubuntu image and installs Maven, GIT, JDK.
+# Testing Pull Request
 
 Step 1:
 
 Make sure docker is installed in the server, before running maven test.
 Use below commands for installing Docker in Ubuntu server.
+Test changes
 
 docker_setup.sh
 ---------------
