@@ -24,12 +24,10 @@ stage('Merge approval'){
     sh "git tag"
     sh "git push https://${env.GIT_USERNAME}:${env.GIT_PASSWORD}@github.com/Devops-POC/Rest-Assured.git --all"
         sh "git push https://${env.GIT_USERNAME}:${env.GIT_PASSWORD}@github.com/Devops-POC/Rest-Assured.git --tags"
-        
+        } 
 
     }*/
    //end of pipeline
     sh 'ls -ltr'
-    
-}
- 
+     
 }
