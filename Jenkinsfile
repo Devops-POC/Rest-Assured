@@ -2,11 +2,11 @@ def pr_ID = 32
 
 stage 'build' 
 node {
-git 'https://github.com/cloudbees/todo-api.git' withEnv(["PATH+MAVEN=${tool 'm3'}/bin"]) {
+//git 'https://github.com/cloudbees/todo-api.git' withEnv(["PATH+MAVEN=${tool 'm3'}/bin"]) {
 //sh "mvn -B –Dmaven.test.failure.ignore=true clean package"
 //}
-stash excludes: 'target/', includes: '**', name: 'source'
-}
+//stash excludes: 'target/', includes: '**', name: 'source'
+//}
 stage 'test'
 parallel 'integration': {
 node {
