@@ -1,18 +1,32 @@
 def pr_ID = 32
+
+stage 'build' 
 node {
-    stage('build'){
-        echo "building"
+git 'https://github.com/cloudbees/todo-api.git' withEnv(["PATH+MAVEN=${tool 'm3'}/bin"]) {
+sh "mvn -B –Dmaven.test.failure.ignore=true clean package"
+}
+stash excludes: 'target/', includes: '**', name: 'source'
+}
+stage 'test'
+parallel 'integration': {
+node {
+unstash 'source' withEnv(["PATH+MAVEN=${tool 'm3'}/bin"]) {
+sh "mvn clean verify" 
+        }
+}
+}, 'quality': {
+node {
+unstash 'source' withEnv(["PATH+MAVEN=${tool 'm3'}/bin"]) {
+sh "mvn sonar:sonar" 
+        }
+} 
+}
+stage 'approve'
+timeout(time: 7, unit: 'DAYS') {
+input message: 'Do you want to Merge code?', submitter: 'ops'
+}
 
-        //testing...123
-
-    }
-stage('Merge approval'){
-//    input "Approve Pull Request ?"
-    echo "Merge status"
-    //setGitHubPullRequestStatus context: 'Mergesuccess', message: 'Success', state: 'SUCCESS'
-  }
-
-/*stage ('Merge Pull Request'){
+stage ('Merge Pull Request'){
     git credentialsId: '97b642fd-9553-426c-ae13-8fb7d75cea8b', url: 'https://github.com/Devops-POC/Rest-Assured.git'
     
     sh "git fetch origin pull/${pr_ID}/head:Devops-POC-patch-2"
@@ -26,8 +40,5 @@ stage('Merge approval'){
         sh "git push https://${env.GIT_USERNAME}:${env.GIT_PASSWORD}@github.com/Devops-POC/Rest-Assured.git --tags"
         } 
 
-    }*/
-   //end of pipeline
-    sh 'ls -ltr'
-     
-}
+    }
+
