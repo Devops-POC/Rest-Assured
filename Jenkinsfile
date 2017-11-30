@@ -3,7 +3,7 @@ def pr_ID = 32
 stage 'build' 
 node {
 git 'https://github.com/cloudbees/todo-api.git' withEnv(["PATH+MAVEN=${tool 'm3'}/bin"]) {
-sh "mvn -B –Dmaven.test.failure.ignore=true clean package"
+//sh "mvn -B –Dmaven.test.failure.ignore=true clean package"
 }
 stash excludes: 'target/', includes: '**', name: 'source'
 }
@@ -11,22 +11,22 @@ stage 'test'
 parallel 'integration': {
 node {
 unstash 'source' withEnv(["PATH+MAVEN=${tool 'm3'}/bin"]) {
-sh "mvn clean verify" 
+//sh "mvn clean verify" 
         }
 }
 }, 'quality': {
 node {
 unstash 'source' withEnv(["PATH+MAVEN=${tool 'm3'}/bin"]) {
-sh "mvn sonar:sonar" 
+//sh "mvn sonar:sonar" 
         }
 } 
 }
 stage 'approve'
 timeout(time: 7, unit: 'DAYS') {
-input message: 'Do you want to Merge code?', submitter: 'ops'
+//input message: 'Do you want to Merge code?', submitter: 'ops'
 }
 
-stage ('Merge Pull Request'){
+/*stage ('Merge Pull Request'){
     git credentialsId: '97b642fd-9553-426c-ae13-8fb7d75cea8b', url: 'https://github.com/Devops-POC/Rest-Assured.git'
     
     sh "git fetch origin pull/${pr_ID}/head:Devops-POC-patch-2"
