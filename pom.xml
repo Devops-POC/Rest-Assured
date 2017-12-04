@@ -4,7 +4,7 @@
   <artifactId>restAssuredFramework</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>restmaven</name>
-  <description>restmaven</description>
+  <description>restmaven </description>
   <dependencies>
   <dependency>
     <groupId>io.rest-assured</groupId>
