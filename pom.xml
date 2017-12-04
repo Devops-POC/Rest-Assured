@@ -6,6 +6,12 @@
   <name>restmaven</name>
   <description>restmaven </description>
   <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
   <dependency>
     <groupId>io.rest-assured</groupId>
     <artifactId>rest-assured</artifactId>
