@@ -21,7 +21,7 @@ node {
   //      }
 } 
 }
-stage 'approve'
+stage 'mail'
 timeout(time: 7, unit: 'DAYS') {
 //input message: 'Do you want to Merge code?', submitter: 'ops'
 }
